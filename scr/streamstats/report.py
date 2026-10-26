@@ -5,6 +5,9 @@ from .models import LEVELS
 
 
 def build_report(stats: dict, top_n: int = 5) -> dict:
+    """
+    Функция собирает из статистики словарь для отчета
+    """
 
     return {
         "total": stats["total"],
@@ -21,10 +24,16 @@ def build_report(stats: dict, top_n: int = 5) -> dict:
 
 
 def report_to_str(report: dict) -> str:
+    """
+    Функция переводит отчет в строку JSON
+    """
     return json.dumps(report, default=str)
 
 
 def write_report(report: dict, path) -> None:
+    """
+    Функция записывает отчет в файл
+    """
     with open(path, "w") as file:
         file.write(report_to_str(report))
  

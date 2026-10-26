@@ -29,7 +29,7 @@ def run_analyze(arg):
     paths = [Path(path) for path in arg.inputs]
 
     for path in paths:
-        if path.is_file() == False:
+        if not path.is_file():
             raise CLIConfigError(f"Нет такого файла {path}")
 
     stats = ananlyze(paths, arg.format, arg.skip_invalid)

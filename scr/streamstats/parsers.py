@@ -11,6 +11,9 @@ logger = logging.getLogger(__name__)
 FIELDS = ("timestamp", "level", "source", "message")
 
 def make_event(raw: dict, path, line_number: int) -> dict:
+    """
+    Функция проверяет поля строки и собирает из них событие
+    """
     timstamp_raw = raw.get("timestamp")
     if not isinstance(timstamp_raw, str) or not timstamp_raw.strip():
         raise InvalidTimestampError("Пустая дата", str(path), line_number, "timestamp")
@@ -36,6 +39,9 @@ def make_event(raw: dict, path, line_number: int) -> dict:
 
 
 def manage_invalid(error: InvalidEventError, skip_invalid: bool, stats) -> None:
+    """
+    Функция пропускает неверную строку или выбрасывает ошибку
+    """
     if not skip_invalid:
         raise error
 
@@ -46,6 +52,9 @@ def manage_invalid(error: InvalidEventError, skip_invalid: bool, stats) -> None:
 
 
 def parse_csv(path, skip_invalid: bool = False, stats=None):
+    """
+    Функция по очереди отдает события из CSV файла
+    """
     with open(path) as file:
         reader = csv.DictReader(file)
         if reader.fieldnames is None:
@@ -65,6 +74,9 @@ def parse_csv(path, skip_invalid: bool = False, stats=None):
 
 
 def parse_jsonl(path, skip_invalid: bool = False, stats = None):
+    """
+    Функция по очереди отдает события из JSONL файла
+    """
     with open(path) as file:
         for line_number, line in enumerate(file, start=1):
             if not line.strip():
@@ -88,6 +100,9 @@ PARSERS = {"csv": parse_csv, "jsonl": parse_jsonl}
 
 
 def get_parser(format: str):
+    """
+    Функция возвращает парсер для формата csv или jsonl
+    """
     if format not in PARSERS:
         raise UnsupportedFormatError(format)
     return PARSERS[format]
