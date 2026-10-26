@@ -1,0 +1,5 @@
+timestamp,level,source,message
+2026-01-01T12:00:00,INFO,api,service started
+2026-01-01T12:01:00,ERROR,db,database error
+2026-01-01T12:02:00,CRITICAL,auth,auth failure
+2026-01-01T12:03:00,ERROR,db,no connection

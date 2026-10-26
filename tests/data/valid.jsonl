@@ -1,0 +1,4 @@
+{"timestamp": "2026-01-01T12:00:00", "level": "INFO", "source": "api", "message": "Запуск сервиса"}
+{"timestamp": "2026-01-01T12:01:00", "level": "ERROR", "source": "db", "message": "Ошибка базы данных"}
+{"timestamp": "2026-01-01T12:02:00", "level": "CRITICAL", "source": "auth", "message": "Сбой авторизации"}
+{"timestamp": "2026-01-01T12:03:00", "level": "ERROR", "source": "db", "message": "Нет соединения"}

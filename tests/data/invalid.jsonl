@@ -1,0 +1,6 @@
+{"timestamp": "2026-01-01T12:00:00", "level": "INFO", "source": "api", "message": "ok"}
+{"timestamp": "2026-01-01T12:01:00", "level": "FATAL", "source": "db", "message": "unknown level"}
+
+{"timestamp": "2026-01-01T12:02:00", "level": "WARNING", "source": "cache", "message": "ok"}
+{"timestamp": "2026-01-01T12:03:00", "level": "ERROR", "source": "", "message": "empty source"}
+{"timestamp": "not-a-date", "level": "INFO", "source": "api", "message": "bad timestamp"}
